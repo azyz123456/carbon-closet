@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global Warming Impact by Fabric Type</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const bulletvalues = [9, 21, 15, 18, 15, 12, 15];   // BULLET POINT DATA GOES HERE
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],  //MATERIALS GO HERE
+      datasets: [{
+        label: 'Success',
+        data: [3, 3, 3, 3, 3, 3, 3],  //GREEN RANGE GOES HERE
+        backgroundColor: [
+            'rgba(75, 192, 192, 0.2)', //green bar
+        ],
+        borderColor: [
+            'rgba(75, 192, 192, 1)',    //green border
+        ],
+      },{
+        label: 'Warning',
+        data: [3, 3, 3, 3, 3, 3, 3],  //YELLOW RANGE GOES HERE
+        backgroundColor: [
+            'rgba(255, 206, 86, 0.2)',    //yellow bar
+        ],
+        borderColor: [
+            'rgba(255, 206, 86, 1)',    //yellow border
+        ],
+      },{
+        label: 'Danger',
+        data: [18, 12, 6, 9, 12, 3, 9], //RED RANGE GOES HERE
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',    //red bar
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',  //red border
+        ],
+      }]
+    };
+
+    // tooltip block
+    const tooltip = {
+        yAlign: 'top',
+        callbacks: {
+            label: function(context) {
+                const bulletArray = [];
+                for (let i = 0; i <= context.chart._metasets.length-1; i++) {
+                    bulletArray.push(context.parsed._stacks.x[i])
+                }
+                //console.log(context.chart._metasets.length);
+                console.log(bulletArray);
+
+                const sum = (total, value) => total + value;
+                const labelname = context.dataset.label;
+                const labelvalue = bulletArray.reduce(sum);
+
+                return `${labelname}: ${labelvalue}`;
+            },
+            footer: function(context) {
+                return `Last Value: ${bulletvalues[context[0].dataIndex]}`;
+            }
+        }
+    };
+
+    // plugin to draw bullets in bulletchart
+    const bulletChart = {
+        id: 'bulletChart',
+        afterDatasetDraw(chart, args, options) {
+            const { ctx, chartArea: { top, bottom, left, right, width, height },
+                scales: { x, y } } = chart;
+            ctx.save();
+            console.log(ctx);
+
+            for(let i = 0; i <= bulletvalues.length-1; i++) {
+                ctx.fillStyle = 'black';
+                ctx.beginPath();
+                ctx.arc(x.getPixelForValue(bulletvalues[i]), y.getPixelForValue(i), 5, 0, 2*Math.PI);
+                ctx.closePath();
+                ctx.fill();
+            };
+            ctx.restore();
+        }
+    }
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        borderWidth: 1,
+        borderSkipped: false,
+        barThickness: 5,
+        borderRadius: 5,
+        indexAxis: 'y',
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                stacked: true,
+                beginAtZero: true
+          }
+        },
+        plugins: {
+            tooltip: tooltip
+        }
+      },
+      plugins: [bulletChart]
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>
