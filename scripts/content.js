@@ -287,7 +287,7 @@ if (materials) {
     barometer4.appendChild(triangle4);
     barometer4.appendChild(rectangle4);
     barometer4.appendChild(labels4);
-    //end of fossil fuel div   
+    //end of fossil fuel div
     
     //summary div
     const summary = document.createElement("div");
