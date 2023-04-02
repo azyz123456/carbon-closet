@@ -1,9 +1,8 @@
-# Dress Eco-Smart! 
+# Carbon Closet
 
 ## Inspiration 
 
-The clothing industry has caused detrimental environmental damages, including global warming, eutrophication, water scarcity, resource depletion and chemistry use. People are unaware of where their own clothes are sourced from. We decided a great way to educate people on this topic is to create a chrome extension. While viewers go online shopping. The chrome extension will list each textile item that makes up the fashionable item on the screen. It will then list the environmental damage that come with the item. In addition, we wanted companies to be held accountable for their sources and environmental impact. We noticed that third party sites tend to have corruption such as manipulating data. Hence, we stored fashionable items as NFTSs an its impact score as a trait, to create transparency and permanency. 
-
+In 2023, fast fashion generated more CO2 than aviation and shipping combined. However, consumers rarely think about the environmental impact of the clothes they purchase. With Carbon Closet, consumers will see the environmental footprint of each purchase before Point of Sale, allowing them to make more informed decisions.
 
 ## What it does
 
@@ -30,6 +29,4 @@ We learned how to use quick mint Omnichain NFT through the workshops. It was dif
 ## What's next for KnowYourTextile! 
 
 When there is a piece of  fashionable item that has higher environmental damage, we hope to create a pop out that shows alternative fashion pieces that are more eco friendly!
-
-
 
