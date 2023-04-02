@@ -1,0 +1,57 @@
+* {
+    font-weight: normal;
+}
+
+.rectangle {
+    width: 300px;
+    height: 20px;
+    background: linear-gradient(to right, #00ff00, #ffff00, #ff0000);
+    border-radius: 10px;
+    border: none;
+    padding: 0px;
+    margin: auto;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid black;
+    margin: auto;
+}
+
+.labels {
+    justify-content: space-between;
+    display: flex;
+    width: 300px;
+    margin: auto;
+}
+
+.label {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.barometer {
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(103, 102, 102, 0.5);
+    margin: 10px;
+    width: 400px
+}
+
+.stats-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.summary {
+    width: 820px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(103, 102, 102, 0.5);
+    margin: 10px;
+}
