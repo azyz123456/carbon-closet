@@ -300,9 +300,4 @@ if (materials) {
     summary.appendChild(summaryText);
     statsBox.insertAdjacentElement("afterend", summary);
 
-
-    //overall sustainability score is:
-    //The environmental footprint of this product is *10.1x* the average clothing piece.
-    //If the rating is higher than 10 and you try to add to cart:  warning: are you sure you want to add this item to your cart? This item is not environmentally friendly
-    //https://www.amazon.com/Amazon-Essentials-Womens-Slim-Fit-X-Large/dp/B07757Y3FN/ref=sr_1_2?crid=1S7I11UP4NGDS&keywords=tank%2Btop&qid=1680379566&sprefix=tank%2Btop%2Caps%2C66&sr=8-2&th=1
-}
+  }
